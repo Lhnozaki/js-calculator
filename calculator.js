@@ -6,6 +6,82 @@
  * @return {object} `calculator` object that can be used
  */
 
+var calculatorModule = function() {
+  var memory = 0;
+  var total = 0;
+
+  var load = function(x) {
+    if(typeof x !== "number"){
+      return error;
+    } else {
+      total = x
+      return total;
+    }
+  }
+
+  var getTotal = function() {
+    return total;
+  }
+
+  var add = function(x) {
+    if(typeof x !== "number"){
+      return error;
+    } else {
+      return total += x;
+    }
+  }
+
+  var subtract = function(x) {
+    if(typeof x !== "number"){
+      return error;
+    } else {
+      return total -= x;
+    }
+  }
+
+  var multiply = function(x) {
+    if(typeof x !== "number"){
+      return error;
+    } else {
+      return total *= x;
+    }
+  }
+
+  var divide = function(x) {
+    if(typeof x !== "number"){
+      return error;
+    } else {
+      return total /= x;
+    }
+  }
+
+  var recallMemory = function() {
+    return memory;
+  }
+
+  var saveMemory = function() {
+    memory = total;
+    return memory;
+  }
+
+  var clearMemory = function() {
+    memory = 0;
+    return memory;
+  }
+
+  return {
+    load: load,
+    getTotal: getTotal,
+    add: add,
+    subtract: subtract,
+    multiply: multiply,
+    divide: divide,
+    recallMemory: recallMemory,
+    saveMemory: saveMemory,
+    clearMemory: clearMemory
+  }
+};
+
 
   /**
    * sets the `total` to the number passed in
@@ -62,4 +138,3 @@
   /**
    * Validation
    */
-
